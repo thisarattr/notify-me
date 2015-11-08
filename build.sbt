@@ -39,16 +39,17 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala).configs(Integrat
  
 lazy val service = (project in file("./modules/service")) dependsOn dao settings(commonSettings: _*) settings(
   name := "notify-me-service",
+  version := "1.0-SNAPSHOT",
   libraryDependencies ++= Seq(
   )
 )
   
 lazy val dao = (project in file("./modules/dao")) settings(commonSettings: _*) settings(
-  name := "notify-me-dao",
+  name := "notify-me-dao", 
+  version := "1.0-SNAPSHOT",
   libraryDependencies ++= Seq(
-    "org.reactivemongo" %% "reactivemongo" % "0.11.4",
-    "org.scalatest" %% "scalatest" % "2.2.4",
+    "org.reactivemongo" %% "reactivemongo" % "0.11.7",
+    "org.scalatest" %% "scalatest" % "2.2.4" % "test",
     "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % "1.47.0"
   )
 )
-
