@@ -1,6 +1,7 @@
 import sbt.Keys._
 
 val playVersion = "2.4.2"
+val reactiveMongoVersion = "0.11.7.play24"
 
 lazy val commonSettings = Seq(
   organization := "org.thisarattr.notifyme",
@@ -48,7 +49,9 @@ lazy val dao = (project in file("./modules/dao")) settings(commonSettings: _*) s
   name := "notify-me-dao", 
   version := "1.0-SNAPSHOT",
   libraryDependencies ++= Seq(
-    "org.reactivemongo" %% "reactivemongo" % "0.11.7",
+  	"com.typesafe.play" %% "play-json" % playVersion,
+	"org.reactivemongo" %% "reactivemongo-extensions-json" % reactiveMongoVersion,
+	"org.reactivemongo" %% "play2-reactivemongo" % reactiveMongoVersion,
     "org.scalatest" %% "scalatest" % "2.2.4" % "test",
     "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % "1.47.0"
   )
